@@ -1,28 +1,57 @@
 <div class="filters">
   <mat-form-field>
     <mat-label>Sort</mat-label>
-    <mat-select panelClass="sort-select" [(ngModel)]="sort" placeholder="Sort by">
-        <mat-option value="name">Name</mat-option>
-        <mat-option value="-released">Released</mat-option>
-        <mat-option value="-added">Added</mat-option>
-        <mat-option value="-created">Created</mat-option>
-        <mat-option value="-updated">Updated</mat-option>
-        <mat-option value="-rating">Rating</mat-option>
-        <mat-option value="metacritic">Metacritic</mat-option>
+    <mat-select
+      panelClass="sort-select"
+      [(ngModel)]="sort"
+      (selectionChange)="searchGames(sort)"
+      placeholder="Sort by"
+    >
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="-released">Released</mat-option>
+      <mat-option value="-added">Added</mat-option>
+      <mat-option value="-created">Created</mat-option>
+      <mat-option value="-updated">Updated</mat-option>
+      <mat-option value="-rating">Rating</mat-option>
+      <mat-option value="metacritic">Metacritic</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
 
 <div class="games">
-
-  <mat-card class="game">
-    <img mat-card-image class="game-thumbnail" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fnintendo-power.com%2Fpokemon-diamond-pearl-remakes-should-be-announced-before-the-anniversary%2F&psig=AOvVaw3FUSKoqEP_o5dVpmL_3Uvp&ust=1636466707901000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIjT2Nr3iPQCFQAAAAAdAAAAABAD" alt="- Thumbnail">
-    <mat-card-title class="px-3">Name</mat-card-title>
-    <mat-card-content class="px-3">
-      <div class="game-platforms">
-
-        <img src="" alt="">
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <ng-container *ngFor="let game of games">
+    <mat-card class="game">
+      <img
+        mat-card-image
+        class="game-thumbnail"
+        src="{{ game.background_image }}"
+        alt="{{ game.name }}- Thumbnail"
+        *ngIf="game.background_image"
+      />
+      <img
+        mat-card-image
+        class="game-thumbnail"
+        src="assets/images/no-cover.png"
+        alt="{{ game.name }}- No Cover"
+        *ngIf="!game.background_image"
+      />
+      <mat-card-title>{{ game.name }}</mat-card-title>
+      <mat-card-subtitle *ngIf="game.genres"
+        >Genres:
+        <ng-container *ngFor="let genre of game.genres; let last = last">
+          {{ genre.name }}<ng-container *ngIf="!last">, </ng-container>
+        </ng-container></mat-card-subtitle
+      >
+      <mat-card-content>
+        <div class="game-platforms">
+          <img
+            *ngFor="let platform of game.parent_platforms"
+            class="game-platform"
+            alt="Platform - {{ platform.platform.name }}"
+            matTooltip="{{ platform.platform.name }}"
+            src="assets/images/platforms/{{ platform.platform.slug }}.svg"
+          />
+        </div>
+      </mat-card-content> </mat-card
+  ></ng-container>
 </div>

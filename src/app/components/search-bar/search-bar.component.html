@@ -1,11 +1,13 @@
-<div class="search-container">
+<mat-toolbar color="primary">
+  <span class="logo h4" routerLink="/">NgVGDB</span>
+  <span class="spacer"></span>
   <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
-    <span class="logo" routerLink="/">NgVGDB</span>
-    <mat-form-field appearance="standard">
+    <mat-form-field style="font-size: .875rem" appearance="standard">
       <input type="text" class="search-input" name="search" matInput ngModel placeholder="Search 500000+ games">
-      <button type="submit" class="search-button" mat-icon-button color="primary" matSuffix>
-        <mat-icon>search</mat-icon>
-      </button>
+
     </mat-form-field>
+    <button type="submit" class="search-button" mat-icon-button color="accent">
+      <mat-icon>search</mat-icon>
+    </button>
   </form>
-</div>
+</mat-toolbar>
