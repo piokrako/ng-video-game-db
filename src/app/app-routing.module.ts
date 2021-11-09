@@ -1,3 +1,4 @@
+import { DetailsComponent } from "./components/details/details.component";
 import { HomeComponent } from './components/home/home.component';
 import { ComponentFixture } from '@angular/core/testing';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'search/:game-search',
     component: HomeComponent
+  },
+  {
+    path: 'details/:id',
+    component: DetailsComponent
   }
 ];
 

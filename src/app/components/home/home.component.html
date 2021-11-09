@@ -20,7 +20,7 @@
 
 <div class="games">
   <ng-container *ngFor="let game of games">
-    <mat-card class="game">
+    <mat-card class="game" (click)="openGameDetails(game.id)">
       <img
         mat-card-image
         class="game-thumbnail"
