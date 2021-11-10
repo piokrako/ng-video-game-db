@@ -23,9 +23,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetailsComponent } from './components/details/details.component';
+import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
+import { LightboxModule } from 'ngx-lightbox';
 
 @NgModule({
-  declarations: [AppComponent, SearchBarComponent, HomeComponent, DetailsComponent],
+  declarations: [AppComponent, SearchBarComponent, HomeComponent, DetailsComponent, GameTabsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -42,7 +44,8 @@ import { DetailsComponent } from './components/details/details.component';
     MatCardModule,
     MatToolbarModule,
     MatChipsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    LightboxModule
   ],
   providers: [
     {

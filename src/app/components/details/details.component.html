@@ -1,40 +1,43 @@
-<div class="details">
-  <div class="game-banner">
-
-  </div>
-  <div class="game-content">
-    <div class="details-wrapper">
-      <div class="game-header">
-        <h1 class="game-header-title">{{ game.name }}</h1>
-        <h2 class="game-header-release-date">
-          Release: {{ game.released | date }}
-        </h2>
-        <p class="game-header-genres">
-          <span *ngFor="let genre of game.genres; let last = last"
+<section class="game-details">
+  <header class="game-details__header">
+    <img
+      src="{{ game.background_image }}"
+      alt="{{ game.name }} - cover image"
+      *ngIf="game.background_image"
+    />
+    <div class="container">
+      <h1 class="game-details__title">{{ game.name }}</h1>
+      <h2
+        class="game-details__release-date"
+        matTooltip="Release: {{ game.released | date }}"
+      >
+        <mat-icon>event</mat-icon> {{ game.released | date }}
+      </h2>
+      <p class="game-details__genres">
+        <span *ngFor="let genre of game.genres; let last = last"
           >{{ genre.name }}<span *ngIf="!last">, </span></span
         >
-        </p>
-        <div class="game-gauge">
-          <mwl-gauge
-            class="two"
-            [max]="100"
-            [dialStartAngle]="180"
-            [dialEndAngle]="0"
-            [value]="gameRating"
-            [animated]="true"
-            [color]="getColor"
-            [animationDuration]="2"
-          >
-          </mwl-gauge>
-          <a
-            class="game-gauge-label"
-            target="_blank"
-            href="{{ game.metacritic_url }}"
-            >Metacritic</a
-          >
-        </div>
+      </p>
+      <div class="game-details__ratings">
+        <mwl-gauge
+          class="game-details__ratings-gauge"
+          [max]="100"
+          [dialStartAngle]="180"
+          [dialEndAngle]="0"
+          [value]="gameRating"
+          [animated]="true"
+          [color]="getColor"
+          [animationDuration]="2"
+        >
+        </mwl-gauge>
+        <a
+          class="game-details__ratings-label"
+          target="_blank"
+          href="{{ game.metacritic_url }}"
+          >Metacritic</a
+        >
       </div>
-      <!-- <app-game-tabs [game]="game"></app-game-tabs> -->
     </div>
-  </div>
-</div>
+  </header>
+  <app-game-tabs [game]="game"></app-game-tabs>
+</section>

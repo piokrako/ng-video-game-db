@@ -1,80 +1,85 @@
-.details-wrapper {
-  max-width: 900px;
-  margin: 20px auto;
-  position: relative;
-}
-
-.details {
-  ::ng-deep mwl-gauge {
-    width: 150px;
-    height: 150px;
-    display: block;
-    padding: 10px;
-
-    .dial {
-      stroke-width: 10;
-    }
-
-    .value {
-      stroke-dasharray: none;
-      stroke-width: 13;
-    }
-
-    .value-text {
-      fill: #fff;
-      font-weight: 700;
-      font-size: 24px;
-    }
-  }
-
-  .game-gauge {
-    position: absolute;
-    top: 50px;
-    right: 0;
-
-    &-label {
-      font-size: 20px;
-      color: #fff;
-      position: relative;
-      bottom: 60px;
-    }
-  }
-}
-
 .game {
-  &-banner {
-    height: 442px;
-    overflow: hidden;
+  &-details {
+    &__header {
+      height: 460px;
+      overflow: hidden;
+      position: relative;
 
-    &-img {
-      width: 100%;
-      filter: blur(5px);
-    }
-  }
+      img {
+        width: 100%;
+        filter: contrast(70%) brightness(70%) blur(4px);
+        transform: scale(1.2);
+      }
 
-  &-content {
-    text-align: center;
-    position: relative;
-    top: -200px;
-  }
-
-  &-header {
-    &-title {
-      font-size: 70px;
-      color: #fff;
-      font-weight: 700;
-      line-height: 70px;
-      white-space: nowrap;
+      .container {
+        position: absolute;
+        z-index: 0;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
-    &-release-date {
+    &__title {
       color: #fff;
-      font-weight: 700;
+      font-size: 3rem;
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.2;
     }
 
-    &-genres {
+    &__release-date {
       color: #fff;
-      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      font-family: "DM Sans", sans-serif;
+
+      mat-icon {
+        margin-right: 0.5rem;
+      }
+    }
+
+    &__genres {
+      color: #fff;
+    }
+
+    &__ratings {
+      position: absolute;
+      bottom: -50%;
+      right: 0;
+
+      &-gauge {
+      }
+
+      ::ng-deep mwl-gauge {
+        width: 120px;
+        height: 120px;
+        display: block;
+        padding: 1rem;
+
+        .dial {
+          stroke-width: 6;
+        }
+
+        .value {
+          stroke-dasharray: none;
+          stroke-width: 6;
+        }
+
+        .value-text {
+          fill: #fff;
+          font-weight: 700;
+          font-size: 1.5rem;
+        }
+      }
+
+      &-label {
+        color: #fff;
+        font-size: 0.875rem;
+        text-decoration: none;
+        position: relative;
+        top: -40px;
+      }
     }
   }
 }
