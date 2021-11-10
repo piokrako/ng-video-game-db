@@ -24,7 +24,6 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { HomeComponent } from './components/home/home.component';
 import { DetailsComponent } from './components/details/details.component';
 import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
-import { LightboxModule } from 'ngx-lightbox';
 
 @NgModule({
   declarations: [AppComponent, SearchBarComponent, HomeComponent, DetailsComponent, GameTabsComponent],
@@ -44,8 +43,7 @@ import { LightboxModule } from 'ngx-lightbox';
     MatCardModule,
     MatToolbarModule,
     MatChipsModule,
-    MatTooltipModule,
-    LightboxModule
+    MatTooltipModule
   ],
   providers: [
     {
