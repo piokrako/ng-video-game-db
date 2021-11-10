@@ -4,6 +4,8 @@ Version of application based on tutorial from https://www.youtube.com/watch?v=Li
 
 API: https://rapidapi.com/accujazz/api/rawg-video-games-database/details
 
+DEPLOY: https://ng-video-game-rawg-db.herokuapp.com/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
