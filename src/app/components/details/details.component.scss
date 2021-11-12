@@ -9,6 +9,8 @@
         width: 100%;
         filter: contrast(70%) brightness(70%) blur(4px);
         transform: scale(1.2);
+        height: 100%;
+        object-fit: cover;
       }
 
       .container {
